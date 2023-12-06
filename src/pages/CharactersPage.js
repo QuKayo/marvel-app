@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { CharactersList } from "../components/CharactersList";
 import { NumberOfCharacters } from "../components/NumberOfCharacters";
-
 import { useLoaderData } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
 
