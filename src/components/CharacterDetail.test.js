@@ -10,11 +10,12 @@ describe('CharactersDetail', () => {
             id: "1",
             name: "Thor",
             description: "Thor description",
+            modified: "2023-11-15T10:30:00-05:00", // Sample modified date in ISO format
             thumbnail: {
                 path: "https://foo.bar",
                 extension: "jpg"
             }
-        }
+        };
 
         // then
         render(<CharacterDetail character={character} />, { wrapper: BrowserRouter });  
@@ -31,6 +32,9 @@ describe('CharactersDetail', () => {
         const imgElement = screen.getByRole('img', { name: character.name });
         expect(imgElement).toBeInTheDocument();
         expect(imgElement).toHaveAttribute('src', `${character.thumbnail.path}/standard_large.${character.thumbnail.extension}`);
+
+        const formattedDate = screen.getByText('November 15, 2023'); // Modify this according to your expected date format
+        expect(formattedDate).toBeInTheDocument();
     });
 
     it('renders the character detail without a thumbnail', () => {
